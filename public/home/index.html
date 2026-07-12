@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gold SteakHouse — Início</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/global.css">
+  <link rel="stylesheet" href="../assets/css/navbar.css">
+  <link rel="stylesheet" href="../assets/css/home.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg gs-navbar fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">GOLD <span>SteakHouse</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Início</a></li>
+        <li class="nav-item"><a class="nav-link" href="../cardapio/cardapio.html">Cardápio</a></li>
+        <li class="nav-item"><a class="nav-link" href="../delivery/delivery.html">Delivery</a></li>
+        <li class="nav-item"><a class="nav-link" href="../qrcode/qrcode.html">QR Code</a></li>
+        <li class="nav-item"><a class="nav-link" href="../perfil/perfil.html">Minha Conta</a></li>
+      </ul>
+      <div class="ms-lg-3 mt-2 mt-lg-0">
+        <button class="btn-cart-nav" onclick="window.location.href='../carrinho/carrinho.html'">
+          <i class="bi bi-bag"></i> Carrinho
+          <span class="cart-badge" id="cartBadge" style="display:none">0</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-line-deco"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="hero-tag">Experiência Premium · Salvador, BA</div>
+        <h1 class="hero-title">
+          <em>Gold</em>
+          <strong>SteakHouse</strong>
+        </h1>
+        <p class="hero-sub">Cortes nobres selecionados, preparados por chefs premiados em um ambiente de elegância incomparável.</p>
+        <div class="hero-ctas">
+          <a href="../cardapio/cardapio.html" class="btn-gold">Ver Cardápio</a>
+          <a href="../delivery/delivery.html" class="btn-outline">Pedir Delivery</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-num">+200</div>
+            <div class="hero-stat-label">Pratos servidos/dia</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">20+</div>
+            <div class="hero-stat-label">Anos de experiência</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">4.9★</div>
+            <div class="hero-stat-label">Avaliação média</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section class="home-section">
+  <div class="container">
+    <div class="section-label">Por que nos escolher</div>
+    <h2 class="section-title">Uma experiência<br><em>única</em> a cada visita</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="feature-card">
+          <span class="feature-icon">🥩</span>
+          <div class="feature-title">Cortes Selecionados</div>
+          <p class="feature-desc">Trabalhamos apenas com os melhores cortes bovinos, selecionados diretamente dos melhores frigoríficos do Brasil.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card">
+          <span class="feature-icon">👨‍🍳</span>
+          <div class="feature-title">Chef Premiado</div>
+          <p class="feature-desc">Nossa equipe é liderada por um chef com mais de 20 anos de experiência em cozinha internacional de alto nível.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card">
+          <span class="feature-icon">✨</span>
+          <div class="feature-title">Ambiente Exclusivo</div>
+          <p class="feature-desc">Design sofisticado e atmosfera intimista para que cada refeição se torne uma memória especial.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-divider mx-auto" style="max-width:800px;"></div>
+
+<!-- PRÉVIA DO CARDÁPIO -->
+<section class="home-section" style="padding-top: 2rem;">
+  <div class="container">
+    <div class="section-label">Destaques</div>
+    <h2 class="section-title">Nossos <em>pratos</em> mais pedidos</h2>
+    <div class="row g-4 preview-grid mb-4">
+      <div class="col-sm-6 col-lg-3">
+        <div class="preview-item">
+          <img class="preview-img" src="../assets/images/principal-picanha.jpeg" alt="Picanha na Chapa">
+          <div class="preview-body">
+            <div class="preview-name">Picanha na Chapa</div>
+            <div class="preview-preco">R$ 98,00</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="preview-item">
+          <img class="preview-img" src="../assets/images/principal-salmao.jpeg" alt="Salmão Grelhado">
+          <div class="preview-body">
+            <div class="preview-name">Salmão Grelhado</div>
+            <div class="preview-preco">R$ 108,00</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="preview-item">
+          <img class="preview-img" src="../assets/images/principal-filemignon.jpeg" alt="Filé Mignon com Purê">
+          <div class="preview-body">
+            <div class="preview-name">Filé Mignon</div>
+            <div class="preview-preco">R$ 135,00</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="preview-item">
+          <img class="preview-img" src="../assets/images/principal-risoto-camarao.jpeg" alt="Risoto de Camarão">
+          <div class="preview-body">
+            <div class="preview-name">Risoto de Camarão</div>
+            <div class="preview-preco">R$ 118,00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center">
+      <a href="../cardapio/cardapio.html" class="btn-gold">Ver Cardápio Completo</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA DELIVERY -->
+<section class="home-section" style="padding-top: 1rem;">
+  <div class="container">
+    <div class="cta-banner">
+      <div class="section-label justify-content-center">Delivery</div>
+      <h2>Peça agora e <em>receba em casa</em></h2>
+      <p>Entregamos em toda Salvador com embalagem que preserva o sabor e a temperatura ideal dos pratos.</p>
+      <a href="../delivery/delivery.html" class="btn-gold">Fazer Pedido</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="footer-logo">GOLD SteakHouse</div>
+        <p class="footer-desc">Uma experiência gastronômica premium no coração de Salvador. Cortes nobres, ambiente sofisticado e sabor incomparável.</p>
+      </div>
+      <div class="col-6 col-lg-2 offset-lg-1">
+        <div class="footer-heading">Menu</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="../cardapio/cardapio.html">Cardápio</a></li>
+          <li><a href="../delivery/delivery.html">Delivery</a></li>
+          <li><a href="../carrinho/carrinho.html">Carrinho</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-2">
+        <div class="footer-heading">Conta</div>
+        <ul class="footer-links">
+          <li><a href="../login/login.html">Entrar</a></li>
+          <li><a href="../perfil/perfil.html">Meu Perfil</a></li>
+          <li><a href="../qrcode/qrcode.html">QR Code</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <div class="footer-heading">Contato</div>
+        <ul class="footer-links">
+          <li><a href="#">📍 Salvador, Bahia</a></li>
+          <li><a href="#">📞 (71) 9999-0000</a></li>
+          <li><a href="#">✉️ contato@goldsteak.com.br</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Gold SteakHouse — Todos os direitos reservados</span>
+      <span>Salvador · Bahia · Brasil</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/data.js"></script>
+<script src="../assets/js/cart.js"></script>
+</body>
+</html>

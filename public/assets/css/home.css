@@ -1,0 +1,170 @@
+/* =============================================
+   GOLD STEAKHOUSE — home.css
+   ============================================= */
+
+/* ---- HERO ---- */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(160deg, var(--black) 0%, #0f0a03 50%, var(--black-2) 100%);
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 80px;
+}
+
+.hero-bg-pattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(201,168,76,0.04) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(201,168,76,0.03) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.hero-line-deco {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(201,168,76,0.15), transparent);
+  display: none;
+}
+@media(min-width:992px) { .hero-line-deco { display: block; right: 25%; } }
+
+.hero-tag {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hero-tag::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--gold-dark);
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 9vw, 8rem);
+  font-weight: 300;
+  line-height: 0.95;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+}
+.hero-title em { font-style: italic; color: var(--gold); display: block; }
+.hero-title strong { font-weight: 600; display: block; }
+
+.hero-sub {
+  font-size: 0.85rem;
+  color: var(--gray);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  max-width: 420px;
+  letter-spacing: 0.04em;
+}
+
+.hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+.hero-stats {
+  display: flex;
+  gap: 2.5rem;
+  margin-top: 4rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid rgba(201,168,76,0.1);
+  flex-wrap: wrap;
+}
+.hero-stat-num {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.hero-stat-label {
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+
+/* ---- SEÇÃO DESTAQUE ---- */
+.home-section { padding: 5rem 0; }
+
+/* ---- CARDS DE DESTAQUE ---- */
+.feature-card {
+  background: var(--black-2);
+  border: 1px solid rgba(201,168,76,0.1);
+  border-radius: 6px;
+  padding: 2rem;
+  height: 100%;
+  transition: all 0.35s ease;
+}
+.feature-card:hover {
+  border-color: rgba(201,168,76,0.3);
+  transform: translateY(-4px);
+}
+.feature-icon {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+.feature-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 0.6rem;
+}
+.feature-desc { font-size: 0.78rem; color: var(--gray); line-height: 1.7; }
+
+/* ---- DESTAQUE DO CARDÁPIO (preview) ---- */
+.preview-grid { }
+.preview-item {
+  background: var(--black-2);
+  border: 1px solid rgba(201,168,76,0.1);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: all 0.35s ease;
+}
+.preview-item:hover { border-color: rgba(201,168,76,0.3); transform: translateY(-3px); }
+.preview-img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+}
+.preview-body { padding: 1rem 1.2rem; }
+.preview-name {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 0.4rem;
+}
+.preview-preco { font-family: var(--font-display); font-size: 1.35rem; color: var(--gold); }
+
+/* ---- CTA BANNER ---- */
+.cta-banner {
+  background: linear-gradient(135deg, rgba(201,168,76,0.08) 0%, transparent 60%);
+  border: 1px solid rgba(201,168,76,0.15);
+  border-radius: 8px;
+  padding: 3.5rem;
+  text-align: center;
+}
+.cta-banner h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 300;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+.cta-banner p { font-size: 0.82rem; color: var(--gray); margin-bottom: 2rem; }

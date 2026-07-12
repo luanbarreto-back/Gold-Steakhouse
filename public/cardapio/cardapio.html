@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cardápio — Gold SteakHouse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/global.css">
+  <link rel="stylesheet" href="../assets/css/navbar.css">
+  <link rel="stylesheet" href="../assets/css/cardapio.css">
+</head>
+<body>
+
+<!-- ====== NAVBAR ====== -->
+<nav class="navbar navbar-expand-lg gs-navbar fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="../home/index.html">GOLD <span>SteakHouse</span></a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="../home/index.html">Início</a></li>
+        <li class="nav-item"><a class="nav-link active" href="cardapio.html">Cardápio</a></li>
+        <li class="nav-item"><a class="nav-link" href="../delivery/delivery.html">Delivery</a></li>
+        <li class="nav-item"><a class="nav-link" href="../qrcode/qrcode.html">QR Code</a></li>
+        <li class="nav-item"><a class="nav-link" href="../perfil/perfil.html">Minha Conta</a></li>
+      </ul>
+      <div class="ms-lg-3 mt-2 mt-lg-0">
+        <button class="btn-cart-nav" onclick="window.location.href='../carrinho/carrinho.html'">
+          <i class="bi bi-bag"></i>
+          Carrinho
+          <span class="cart-badge" id="cartBadge" style="display:none">0</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ====== HERO ====== -->
+<header class="cardapio-hero">
+  <div class="container">
+    <div class="section-label justify-content-center">Experiência Gastronômica</div>
+    <h1>Nossa <em>Culinária</em></h1>
+    <p>Ingredientes selecionados · Preparo artesanal · Salvador, BA</p>
+  </div>
+</header>
+
+<!-- ====== TABS DE CATEGORIA ====== -->
+<div class="categoria-tabs">
+  <div class="tabs-inner">
+    <button class="tab-btn active" data-cat="entradas">
+      <span class="tab-icon">🍽️</span> Entradas
+    </button>
+    <button class="tab-btn" data-cat="executivo">
+      <span class="tab-icon">🍛</span> Executivo
+    </button>
+    <button class="tab-btn" data-cat="principal">
+      <span class="tab-icon">🥩</span> Principal
+    </button>
+    <button class="tab-btn" data-cat="sobremesas">
+      <span class="tab-icon">🍰</span> Sobremesas
+    </button>
+    <button class="tab-btn" data-cat="bebidas">
+      <span class="tab-icon">🥤</span> Bebidas
+    </button>
+  </div>
+</div>
+
+<!-- ====== CONTEÚDO ====== -->
+<main class="container" style="padding-bottom: 4rem;">
+
+  <!-- ENTRADAS -->
+  <section class="cardapio-section active" id="sec-entradas">
+    <div class="cat-header">
+      <div>
+        <div class="section-label">Para começar</div>
+        <h2 class="cat-title">🍽️ <em>Entradas</em></h2>
+      </div>
+      <span class="cat-count" id="count-entradas"></span>
+    </div>
+    <div class="row g-4" id="grid-entradas"></div>
+  </section>
+
+  <!-- EXECUTIVO -->
+  <section class="cardapio-section" id="sec-executivo">
+    <div class="cat-header">
+      <div>
+        <div class="section-label">Almoço especial</div>
+        <h2 class="cat-title">🍛 <em>Executivo</em></h2>
+      </div>
+      <span class="cat-count" id="count-executivo"></span>
+    </div>
+    <div class="row g-4" id="grid-executivo"></div>
+  </section>
+
+  <!-- PRINCIPAL -->
+  <section class="cardapio-section" id="sec-principal">
+    <div class="cat-header">
+      <div>
+        <div class="section-label">Pratos nobres</div>
+        <h2 class="cat-title">🥩 <em>Principal</em></h2>
+      </div>
+      <span class="cat-count" id="count-principal"></span>
+    </div>
+    <div class="row g-4" id="grid-principal"></div>
+  </section>
+
+  <!-- SOBREMESAS -->
+  <section class="cardapio-section" id="sec-sobremesas">
+    <div class="cat-header">
+      <div>
+        <div class="section-label">Para finalizar</div>
+        <h2 class="cat-title">🍰 <em>Sobremesas</em></h2>
+      </div>
+      <span class="cat-count" id="count-sobremesas"></span>
+    </div>
+    <div class="row g-4" id="grid-sobremesas"></div>
+  </section>
+
+  <!-- BEBIDAS -->
+  <section class="cardapio-section" id="sec-bebidas">
+    <div class="cat-header">
+      <div>
+        <div class="section-label">Bar & Drinks</div>
+        <h2 class="cat-title">🥤 <em>Bebidas</em></h2>
+      </div>
+      <span class="cat-count" id="count-bebidas"></span>
+    </div>
+
+    <!-- Filtro de tipo de bebida -->
+    <div class="mb-4" id="bebida-filtros"></div>
+    <div class="row g-3" id="grid-bebidas"></div>
+  </section>
+
+</main>
+
+<!-- ====== FOOTER ====== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="footer-logo">GOLD SteakHouse</div>
+        <p class="footer-desc">Uma experiência gastronômica premium no coração de Salvador. Cortes nobres, ambiente sofisticado e sabor incomparável.</p>
+      </div>
+      <div class="col-6 col-lg-2 offset-lg-1">
+        <div class="footer-heading">Menu</div>
+        <ul class="footer-links">
+          <li><a href="../home/index.html">Início</a></li>
+          <li><a href="cardapio.html">Cardápio</a></li>
+          <li><a href="../delivery/delivery.html">Delivery</a></li>
+          <li><a href="../carrinho/carrinho.html">Carrinho</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-2">
+        <div class="footer-heading">Conta</div>
+        <ul class="footer-links">
+          <li><a href="../login/login.html">Entrar</a></li>
+          <li><a href="../perfil/perfil.html">Meu Perfil</a></li>
+          <li><a href="../qrcode/qrcode.html">QR Code</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <div class="footer-heading">Contato</div>
+        <ul class="footer-links">
+          <li><a href="#">📍 Salvador, Bahia</a></li>
+          <li><a href="#">📞 (71) 9999-0000</a></li>
+          <li><a href="#">✉️ contato@goldsteak.com.br</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Gold SteakHouse — Todos os direitos reservados</span>
+      <span>Salvador · Bahia · Brasil</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Modal Detalhe do Prato -->
+<div class="modal fade" id="pratoModal" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content" style="background: var(--black-2); border: 1px solid rgba(201,168,76,0.2); border-radius: 8px;">
+      <div class="modal-header" style="border-bottom: 1px solid rgba(201,168,76,0.12); padding: 1.5rem;">
+        <h5 class="modal-title" id="modalPratoNome" style="font-family: var(--font-display); font-size: 1.8rem; font-weight: 300; color: var(--white);"></h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body p-0">
+        <img id="modalPratoImg" src="" alt="" style="width:100%; max-height:320px; object-fit:cover;">
+        <div class="p-4">
+          <p id="modalPratoDesc" style="font-size:0.82rem; color: var(--gray); line-height:1.7; margin-bottom:1.5rem;"></p>
+          <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+            <div id="modalPratoInfo" style="font-size:0.72rem; color: var(--gray-light);"></div>
+            <div class="d-flex align-items-center gap-3">
+              <span id="modalPratoPreco" style="font-family: var(--font-display); font-size:2rem; color: var(--gold);"></span>
+              <button id="modalBtnAdd" class="btn-gold" style="padding: 10px 24px;">
+                Adicionar ao Carrinho
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/data.js"></script>
+<script src="../assets/js/cart.js"></script>
+<script src="../assets/js/cardapio.js"></script>
+</body>
+</html>

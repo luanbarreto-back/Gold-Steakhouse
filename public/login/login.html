@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrar — Gold SteakHouse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/global.css">
+  <link rel="stylesheet" href="../assets/css/navbar.css">
+  <link rel="stylesheet" href="../assets/css/pages.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg gs-navbar fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="../home/index.html">GOLD <span>SteakHouse</span></a>
+    <div class="ms-auto">
+      <a href="../home/index.html" class="btn-outline" style="padding:8px 20px; font-size:0.65rem;">← Início</a>
+    </div>
+  </div>
+</nav>
+
+<div class="login-wrap">
+  <div class="container">
+    <div class="login-card">
+      <div class="login-logo">GOLD SteakHouse</div>
+      <div class="login-sub">Acesse sua conta para continuar</div>
+
+      <div id="alertLogin" class="alert alert-danger d-none" role="alert" style="font-size:0.78rem; background: rgba(220,53,69,0.1); border-color: rgba(220,53,69,0.3); color: #e74c3c;"></div>
+      <div id="alertSuccess" class="alert alert-success d-none" role="alert" style="font-size:0.78rem; background: rgba(201,168,76,0.1); border-color: rgba(201,168,76,0.3); color: var(--gold);"></div>
+
+      <div>
+        <div class="mb-3">
+          <label class="form-label-gold" for="email">E-mail</label>
+          <input type="email" id="email" class="form-control-gold" placeholder="seu@email.com" autocomplete="email">
+          <div class="invalid-feedback-gold" id="emailErr" style="display:none; font-size:0.68rem; color:#e74c3c; margin-top:4px;"></div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label-gold" for="senha">Senha</label>
+          <div style="position:relative;">
+            <input type="password" id="senha" class="form-control-gold" placeholder="••••••••" autocomplete="current-password" style="padding-right: 44px;">
+            <button type="button" id="toggleSenha" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); background:none; border:none; color:var(--gray); cursor:pointer;">
+              <i class="bi bi-eye"></i>
+            </button>
+          </div>
+          <div class="invalid-feedback-gold" id="senhaErr" style="display:none; font-size:0.68rem; color:#e74c3c; margin-top:4px;"></div>
+        </div>
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <div class="form-check" style="margin:0;">
+            <input class="form-check-input" type="checkbox" id="lembrar" style="background-color: var(--black-3); border-color: rgba(201,168,76,0.3);">
+            <label class="form-check-label" for="lembrar" style="font-size:0.72rem; color:var(--gray);">Lembrar de mim</label>
+          </div>
+          <a href="recuperar.html" style="font-size:0.72rem; color:var(--gold);">Esqueci a senha</a>
+        </div>
+        <button class="btn-gold w-100" id="btnLogin">Entrar</button>
+      </div>
+
+      <div class="login-divider"><span>ou</span></div>
+
+      <button class="btn-outline w-100" style="display:flex; align-items:center; justify-content:center; gap:8px; font-size:0.68rem;" onclick="loginDemo()">
+        <i class="bi bi-person"></i> Entrar como convidado
+      </button>
+
+      <div class="login-footer">
+        Não tem conta? <a href="#">Cadastre-se</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/data.js"></script>
+<script src="../assets/js/cart.js"></script>
+<script>
+  /* Toggle senha */
+  document.getElementById('toggleSenha').addEventListener('click', function() {
+    const inp = document.getElementById('senha');
+    const ic = this.querySelector('i');
+    if (inp.type === 'password') {
+      inp.type = 'text';
+      ic.className = 'bi bi-eye-slash';
+    } else {
+      inp.type = 'password';
+      ic.className = 'bi bi-eye';
+    }
+  });
+
+  /* Validação */
+  function validarEmail(e) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
+  }
+
+  function mostrarErro(id, msg) {
+    const el = document.getElementById(id);
+    el.textContent = msg;
+    el.style.display = 'block';
+  }
+  function limparErro(id) {
+    document.getElementById(id).style.display = 'none';
+  }
+
+  document.getElementById('btnLogin').addEventListener('click', () => {
+    const email = document.getElementById('email').value.trim();
+    const senha = document.getElementById('senha').value;
+    let ok = true;
+
+    limparErro('emailErr'); limparErro('senhaErr');
+    document.getElementById('alertLogin').classList.add('d-none');
+
+    if (!email) { mostrarErro('emailErr', 'Informe seu e-mail.'); ok = false; }
+    else if (!validarEmail(email)) { mostrarErro('emailErr', 'E-mail inválido.'); ok = false; }
+
+    if (!senha) { mostrarErro('senhaErr', 'Informe sua senha.'); ok = false; }
+    else if (senha.length < 6) { mostrarErro('senhaErr', 'Senha muito curta.'); ok = false; }
+
+    if (!ok) return;
+
+    /* Simulação de login */
+    const btn = document.getElementById('btnLogin');
+    btn.textContent = 'Entrando...';
+    btn.disabled = true;
+
+    setTimeout(() => {
+      // Demo: aceita qualquer e-mail/senha válidos
+      localStorage.setItem('gs_user', JSON.stringify({ nome: 'Visitante', email }));
+      const alert = document.getElementById('alertSuccess');
+      alert.textContent = '✓ Login realizado! Redirecionando...';
+      alert.classList.remove('d-none');
+      setTimeout(() => window.location.href = '../home/index.html', 1200);
+    }, 800);
+  });
+
+  function loginDemo() {
+    localStorage.setItem('gs_user', JSON.stringify({ nome: 'Convidado', email: 'convidado@goldsteak.com' }));
+    window.location.href = '../home/index.html';
+  }
+
+  /* Enter key */
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Enter') document.getElementById('btnLogin').click();
+  });
+</script>
+</body>
+</html>

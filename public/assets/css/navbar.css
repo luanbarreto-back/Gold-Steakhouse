@@ -1,0 +1,104 @@
+/* =============================================
+   GOLD STEAKHOUSE — navbar.css
+   ============================================= */
+
+.gs-navbar {
+  background: rgba(10,10,10,0.96) !important;
+  border-bottom: 1px solid rgba(201,168,76,0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 1rem 0;
+  transition: all 0.3s ease;
+  z-index: 1050;
+}
+
+.gs-navbar.scrolled {
+  padding: 0.6rem 0;
+  border-bottom-color: rgba(201,168,76,0.22);
+}
+
+.navbar-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--gold) !important;
+  letter-spacing: 0.1em;
+}
+.navbar-brand span { color: var(--white); font-weight: 300; }
+
+.nav-link {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.68rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  color: rgba(245,240,232,0.65) !important;
+  padding: 0.4rem 1rem !important;
+  transition: color 0.3s ease !important;
+  position: relative;
+}
+.nav-link:hover,
+.nav-link.active {
+  color: var(--gold) !important;
+}
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 1rem;
+  right: 1rem;
+  height: 1px;
+  background: var(--gold);
+}
+
+.btn-cart-nav {
+  background: transparent;
+  border: 1px solid rgba(201,168,76,0.4);
+  color: var(--gold);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 8px 18px;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-cart-nav:hover { background: var(--gold); color: var(--black); }
+
+.cart-badge {
+  background: var(--gold);
+  color: var(--black);
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.navbar-toggler {
+  border: 1px solid rgba(201,168,76,0.3) !important;
+  padding: 6px 10px !important;
+}
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28201%2C168%2C76%2C0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background: var(--black-2);
+    border: 1px solid rgba(201,168,76,0.1);
+    border-radius: 4px;
+    padding: 1rem;
+    margin-top: 0.5rem;
+  }
+  .nav-link.active::after { display: none; }
+}

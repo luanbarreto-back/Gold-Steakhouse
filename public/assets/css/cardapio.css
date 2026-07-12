@@ -1,0 +1,435 @@
+/* =============================================
+   GOLD STEAKHOUSE — cardapio.css
+   ============================================= */
+
+/* ---- HERO DO CARDÁPIO ---- */
+.cardapio-hero {
+  background: linear-gradient(135deg, var(--black-2) 0%, var(--black) 100%);
+  border-bottom: 1px solid rgba(201,168,76,0.12);
+  padding: 6rem 0 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cardapio-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 100%, rgba(201,168,76,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.cardapio-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+.cardapio-hero h1 em { font-style: italic; color: var(--gold); }
+.cardapio-hero p { font-size: 0.82rem; color: var(--gray); letter-spacing: 0.1em; }
+
+/* ---- FILTROS / TABS ---- */
+.categoria-tabs {
+  background: var(--black-2);
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+  position: sticky;
+  top: 70px;
+  z-index: 100;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.categoria-tabs::-webkit-scrollbar { display: none; }
+
+.tabs-inner {
+  display: flex;
+  gap: 0;
+  width: max-content;
+  min-width: 100%;
+  justify-content: center;
+  padding: 0 1rem;
+}
+
+@media (max-width: 767px) {
+  .tabs-inner { justify-content: flex-start; }
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: rgba(245,240,232,0.5);
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 1.1rem 1.4rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.tab-btn:hover { color: var(--white); }
+.tab-btn.active {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+.tab-btn .tab-icon { font-size: 1rem; }
+
+/* ---- SEÇÕES DO CARDÁPIO ---- */
+.cardapio-section {
+  padding: 4rem 0 2rem;
+  display: none;
+}
+.cardapio-section.active { display: block; }
+
+.cat-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid rgba(201,168,76,0.12);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.cat-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1;
+}
+.cat-title em { color: var(--gold); font-style: italic; }
+.cat-count {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: var(--gray);
+  text-transform: uppercase;
+}
+
+/* ---- CARD DO PRATO ---- */
+.prato-card {
+  background: var(--black-2);
+  border: 1px solid rgba(201,168,76,0.1);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: all 0.35s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.prato-card:hover {
+  border-color: rgba(201,168,76,0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+}
+
+.prato-img-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  background: var(--black-3);
+}
+.prato-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.prato-card:hover .prato-img-wrap img { transform: scale(1.06); }
+
+.prato-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10,10,10,0.7) 0%, transparent 50%);
+}
+
+.prato-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(10,10,10,0.85);
+  border: 1px solid rgba(201,168,76,0.35);
+  color: var(--gold);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 3px;
+}
+
+.prato-body {
+  padding: 1.25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.prato-name {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+.prato-desc {
+  font-size: 0.75rem;
+  color: var(--gray);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  flex: 1;
+}
+.prato-info {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+.prato-info-item {
+  font-size: 0.62rem;
+  color: var(--gray-light);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.prato-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(201,168,76,0.08);
+  gap: 0.5rem;
+}
+.prato-preco {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--gold);
+  line-height: 1;
+}
+.prato-preco small {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  color: var(--gray);
+  display: block;
+  letter-spacing: 0.05em;
+}
+
+.btn-add {
+  background: rgba(201,168,76,0.1);
+  border: 1px solid rgba(201,168,76,0.3);
+  color: var(--gold);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+.btn-add:hover { background: var(--gold); color: var(--black); transform: rotate(90deg); }
+
+/* ---- CARD DE BEBIDA (diferente — retrato) ---- */
+.bebida-card {
+  background: var(--black-2);
+  border: 1px solid rgba(201,168,76,0.1);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: all 0.35s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0;
+}
+.bebida-card:hover {
+  border-color: rgba(201,168,76,0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+}
+.bebida-img-wrap {
+  width: 110px;
+  flex-shrink: 0;
+  background: var(--black-3);
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  overflow: hidden;
+}
+.bebida-img-wrap img {
+  width: 80px;
+  height: 120px;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+.bebida-card:hover .bebida-img-wrap img { transform: scale(1.08); }
+.bebida-body {
+  padding: 1rem 1.1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.bebida-name {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.2;
+}
+.bebida-desc { font-size: 0.7rem; color: var(--gray); line-height: 1.5; }
+.bebida-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 0.6rem;
+  border-top: 1px solid rgba(201,168,76,0.08);
+}
+.bebida-preco {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: var(--gold);
+}
+
+/* ---- EXECUTIVO ---- */
+.executivo-card {
+  background: linear-gradient(135deg, var(--black-2) 0%, rgba(26,20,10,1) 100%);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.35s ease;
+}
+.executivo-card:hover {
+  border-color: rgba(201,168,76,0.45);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(201,168,76,0.08);
+}
+.executivo-img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+.executivo-body { padding: 1.5rem; }
+.executivo-badge {
+  display: inline-block;
+  background: rgba(201,168,76,0.12);
+  border: 1px solid rgba(201,168,76,0.3);
+  color: var(--gold);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 0.75rem;
+}
+.executivo-name {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+.executivo-desc { font-size: 0.75rem; color: var(--gray); line-height: 1.6; margin-bottom: 1rem; }
+.executivo-includes {
+  font-size: 0.68rem;
+  color: var(--gray-light);
+  letter-spacing: 0.08em;
+  margin-bottom: 1.2rem;
+}
+.executivo-includes span { color: var(--gold-light); }
+.executivo-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(201,168,76,0.1);
+}
+.executivo-preco {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--gold);
+  line-height: 1;
+}
+.executivo-preco small { display: block; font-family: var(--font-body); font-size: 0.62rem; color: var(--gray); }
+
+/* ---- SOBREMESA ---- */
+.sobremesa-card {
+  background: var(--black-2);
+  border: 1px solid rgba(201,168,76,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.35s ease;
+  height: 100%;
+}
+.sobremesa-card:hover {
+  border-color: rgba(201,168,76,0.35);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 36px rgba(0,0,0,0.45);
+}
+.sobremesa-img-wrap {
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  background: var(--black-3);
+  position: relative;
+}
+.sobremesa-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.sobremesa-card:hover .sobremesa-img-wrap img { transform: scale(1.08); }
+.sobremesa-body { padding: 1.2rem; }
+.sobremesa-name {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 0.4rem;
+}
+.sobremesa-desc { font-size: 0.72rem; color: var(--gray); line-height: 1.5; margin-bottom: 1rem; }
+.sobremesa-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(201,168,76,0.08);
+}
+.sobremesa-preco {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--gold);
+}
+
+/* ---- EMPTY STATE ---- */
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--gray);
+}
+.empty-state-icon { font-size: 3rem; margin-bottom: 1rem; }
+.empty-state p { font-size: 0.82rem; }
+
+@media (max-width: 575px) {
+  .bebida-card { flex-direction: column; }
+  .bebida-img-wrap { width: 100%; height: 100px; padding: 0.75rem; }
+  .bebida-img-wrap img { width: auto; height: 80px; }
+}

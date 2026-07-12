@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delivery — Gold SteakHouse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/global.css">
+  <link rel="stylesheet" href="../assets/css/navbar.css">
+  <link rel="stylesheet" href="../assets/css/pages.css">
+  <style>
+    .step-num {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.35);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-size: 1.1rem; color: var(--gold);
+      flex-shrink: 0;
+    }
+    .step-active .step-num { background: var(--gold); color: var(--black); }
+    .step-label { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray); margin-bottom: 2px; }
+    .step-title { font-size: 0.82rem; color: var(--white); }
+    .step-connector { height: 1px; background: rgba(201,168,76,0.15); flex: 1; }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg gs-navbar fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="../home/index.html">GOLD <span>SteakHouse</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="../home/index.html">Início</a></li>
+        <li class="nav-item"><a class="nav-link" href="../cardapio/cardapio.html">Cardápio</a></li>
+        <li class="nav-item"><a class="nav-link active" href="delivery.html">Delivery</a></li>
+      </ul>
+      <div class="ms-lg-3 mt-2 mt-lg-0">
+        <button class="btn-cart-nav" onclick="window.location.href='../carrinho/carrinho.html'">
+          <i class="bi bi-bag"></i> Carrinho
+          <span class="cart-badge" id="cartBadge" style="display:none">0</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <div class="container">
+    <div class="section-label">Peça de onde estiver</div>
+    <h1>🚚 <em>Delivery</em></h1>
+  </div>
+</header>
+
+<main class="container" style="padding: 3rem 0 5rem;">
+
+  <!-- Steps -->
+  <div class="d-flex align-items-center gap-3 mb-4 overflow-auto pb-2" style="scrollbar-width:none;">
+    <div class="d-flex align-items-center gap-2 step-active" id="stepInd1">
+      <div class="step-num">1</div>
+      <div><div class="step-label">Passo 1</div><div class="step-title">Endereço</div></div>
+    </div>
+    <div class="step-connector"></div>
+    <div class="d-flex align-items-center gap-2" id="stepInd2">
+      <div class="step-num">2</div>
+      <div><div class="step-label">Passo 2</div><div class="step-title">Pagamento</div></div>
+    </div>
+    <div class="step-connector"></div>
+    <div class="d-flex align-items-center gap-2" id="stepInd3">
+      <div class="step-num">3</div>
+      <div><div class="step-label">Passo 3</div><div class="step-title">Confirmação</div></div>
+    </div>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-lg-8">
+
+      <!-- Step 1: Endereço -->
+      <div id="step1" class="delivery-form">
+        <h5 style="font-family:var(--font-display); font-size:1.4rem; font-weight:300; color:var(--white); margin-bottom:1.5rem;">📍 Endereço de entrega</h5>
+        <div class="row g-3">
+          <div class="col-sm-4">
+            <label class="form-label-gold">CEP *</label>
+            <input type="text" id="dlvCep" class="form-control-gold" placeholder="40000-000" maxlength="9">
+          </div>
+          <div class="col-sm-8">
+            <label class="form-label-gold">Rua / Avenida *</label>
+            <input type="text" id="dlvRua" class="form-control-gold" placeholder="Av. Tancredo Neves">
+          </div>
+          <div class="col-sm-3">
+            <label class="form-label-gold">Número *</label>
+            <input type="text" id="dlvNum" class="form-control-gold" placeholder="1000">
+          </div>
+          <div class="col-sm-5">
+            <label class="form-label-gold">Complemento</label>
+            <input type="text" id="dlvComp" class="form-control-gold" placeholder="Apto 202">
+          </div>
+          <div class="col-sm-4">
+            <label class="form-label-gold">Bairro *</label>
+            <input type="text" id="dlvBairro" class="form-control-gold" placeholder="Pituba">
+          </div>
+          <div class="col-sm-6">
+            <label class="form-label-gold">Nome do destinatário *</label>
+            <input type="text" id="dlvNome" class="form-control-gold" placeholder="Seu nome">
+          </div>
+          <div class="col-sm-6">
+            <label class="form-label-gold">Telefone *</label>
+            <input type="tel" id="dlvTel" class="form-control-gold" placeholder="(71) 9 9999-0000">
+          </div>
+          <div class="col-12">
+            <label class="form-label-gold">Observações</label>
+            <textarea class="form-control-gold" id="dlvObs" rows="2" placeholder="Ponto de referência, portão, etc." style="resize:vertical;"></textarea>
+          </div>
+        </div>
+        <div id="errEnd" style="display:none; font-size:0.72rem; color:#e74c3c; margin-top:10px;"></div>
+        <div class="mt-4">
+          <button class="btn-gold" onclick="irStep2()">Próximo: Pagamento →</button>
+        </div>
+      </div>
+
+      <!-- Step 2: Pagamento -->
+      <div id="step2" class="delivery-form" style="display:none;">
+        <h5 style="font-family:var(--font-display); font-size:1.4rem; font-weight:300; color:var(--white); margin-bottom:1.5rem;">💳 Forma de pagamento</h5>
+        <div class="row g-3 mb-3">
+          <div class="col-sm-6 col-lg-3">
+            <label style="cursor:pointer; display:block;">
+              <input type="radio" name="pagto" value="pix" style="display:none;" onchange="togglePagto(this)">
+              <div class="pagto-opt" style="background:var(--black-3); border:1px solid rgba(201,168,76,0.15); border-radius:6px; padding:1.2rem; text-align:center; transition:all 0.3s;">
+                <div style="font-size:1.8rem; margin-bottom:0.4rem;">📱</div>
+                <div style="font-size:0.7rem; font-weight:600; letter-spacing:0.1em; color:var(--white);">PIX</div>
+              </div>
+            </label>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <label style="cursor:pointer; display:block;">
+              <input type="radio" name="pagto" value="cartao" style="display:none;" onchange="togglePagto(this)">
+              <div class="pagto-opt" style="background:var(--black-3); border:1px solid rgba(201,168,76,0.15); border-radius:6px; padding:1.2rem; text-align:center; transition:all 0.3s;">
+                <div style="font-size:1.8rem; margin-bottom:0.4rem;">💳</div>
+                <div style="font-size:0.7rem; font-weight:600; letter-spacing:0.1em; color:var(--white);">Cartão</div>
+              </div>
+            </label>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <label style="cursor:pointer; display:block;">
+              <input type="radio" name="pagto" value="dinheiro" style="display:none;" onchange="togglePagto(this)">
+              <div class="pagto-opt" style="background:var(--black-3); border:1px solid rgba(201,168,76,0.15); border-radius:6px; padding:1.2rem; text-align:center; transition:all 0.3s;">
+                <div style="font-size:1.8rem; margin-bottom:0.4rem;">💵</div>
+                <div style="font-size:0.7rem; font-weight:600; letter-spacing:0.1em; color:var(--white);">Dinheiro</div>
+              </div>
+            </label>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <label style="cursor:pointer; display:block;">
+              <input type="radio" name="pagto" value="vale" style="display:none;" onchange="togglePagto(this)">
+              <div class="pagto-opt" style="background:var(--black-3); border:1px solid rgba(201,168,76,0.15); border-radius:6px; padding:1.2rem; text-align:center; transition:all 0.3s;">
+                <div style="font-size:1.8rem; margin-bottom:0.4rem;">🎫</div>
+                <div style="font-size:0.7rem; font-weight:600; letter-spacing:0.1em; color:var(--white);">Vale Refeição</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Cartão detalhes -->
+        <div id="detCartao" style="display:none;" class="row g-3 mb-3">
+          <div class="col-12">
+            <label class="form-label-gold">Número do cartão</label>
+            <input type="text" id="cardNum" class="form-control-gold" placeholder="0000 0000 0000 0000" maxlength="19">
+          </div>
+          <div class="col-sm-6">
+            <label class="form-label-gold">Nome no cartão</label>
+            <input type="text" id="cardNome" class="form-control-gold" placeholder="NOME SOBRENOME">
+          </div>
+          <div class="col-sm-3">
+            <label class="form-label-gold">Validade</label>
+            <input type="text" id="cardVal" class="form-control-gold" placeholder="MM/AA" maxlength="5">
+          </div>
+          <div class="col-sm-3">
+            <label class="form-label-gold">CVV</label>
+            <input type="text" id="cardCvv" class="form-control-gold" placeholder="000" maxlength="3">
+          </div>
+        </div>
+
+        <!-- Troco -->
+        <div id="detDinheiro" style="display:none;" class="mb-3">
+          <label class="form-label-gold">Troco para quanto?</label>
+          <input type="text" id="troco" class="form-control-gold" placeholder="R$ 100,00" style="max-width:200px;">
+        </div>
+
+        <div id="errPagto" style="display:none; font-size:0.72rem; color:#e74c3c; margin-top:10px;"></div>
+        <div class="d-flex gap-3 mt-4 flex-wrap">
+          <button class="btn-outline" onclick="voltarStep1()">← Endereço</button>
+          <button class="btn-gold" onclick="irStep3()">Confirmar Pedido →</button>
+        </div>
+      </div>
+
+      <!-- Step 3: Confirmação -->
+      <div id="step3" style="display:none; text-align:center; padding: 3rem 2rem;">
+        <div style="font-size:4rem; margin-bottom:1rem;">🎉</div>
+        <h3 style="font-family:var(--font-display); font-size:2.5rem; font-weight:300; color:var(--white); margin-bottom:0.5rem;">Pedido confirmado!</h3>
+        <p style="font-size:0.82rem; color:var(--gray); line-height:1.7; margin-bottom:0.5rem;">
+          Seu pedido foi recebido com sucesso.
+        </p>
+        <p style="font-size:0.78rem; color:var(--gold); margin-bottom:2rem;">Tempo estimado: <strong>40–60 minutos</strong></p>
+        <div class="d-flex gap-3 justify-content-center flex-wrap">
+          <a href="../home/index.html" class="btn-gold">Voltar ao início</a>
+          <a href="../cardapio/cardapio.html" class="btn-outline">Ver Cardápio</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Resumo lateral -->
+    <div class="col-lg-4">
+      <div class="cart-summary" style="position:sticky; top:90px;">
+        <div class="summary-title">Resumo do Pedido</div>
+        <div id="dlvItems" style="margin-bottom:1rem; max-height:200px; overflow-y:auto;"></div>
+        <div class="summary-line"><span>Subtotal</span><span id="dlvSub">R$ 0,00</span></div>
+        <div class="summary-line"><span>Taxa de entrega</span><span>R$ 8,00</span></div>
+        <div class="summary-total">
+          <span class="summary-total-label">Total</span>
+          <span class="summary-total-val" id="dlvTotal">R$ 0,00</span>
+        </div>
+        <div style="margin-top:1rem; font-size:0.68rem; color:var(--gray); text-align:center;">
+          <i class="bi bi-shield-check" style="color:var(--gold);"></i> Pagamento 100% seguro
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer" style="margin-top:1rem;">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2025 Gold SteakHouse</span>
+      <a href="../home/index.html" style="color:var(--gold);">Voltar ao início</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/data.js"></script>
+<script src="../assets/js/cart.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const items = Cart.items;
+    const el = document.getElementById('dlvItems');
+    if (!items.length) {
+      el.innerHTML = `<p style="font-size:0.72rem; color:var(--gray); text-align:center;">Carrinho vazio. <a href="../cardapio/cardapio.html" style="color:var(--gold);">Ver cardápio</a></p>`;
+    } else {
+      el.innerHTML = items.map(i => `
+        <div style="display:flex; justify-content:space-between; font-size:0.72rem; color:var(--gray); margin-bottom:6px;">
+          <span>${i.qty}× ${i.nome}</span>
+          <span style="color:var(--white);">${formatPreco(i.preco*i.qty)}</span>
+        </div>`).join('');
+    }
+    const sub = Cart.total();
+    document.getElementById('dlvSub').textContent = formatPreco(sub);
+    document.getElementById('dlvTotal').textContent = formatPreco(sub + 8);
+  });
+
+  function irStep2() {
+    const campos = ['dlvCep','dlvRua','dlvNum','dlvBairro','dlvNome','dlvTel'];
+    const err = campos.some(id => !document.getElementById(id).value.trim());
+    if (err) { document.getElementById('errEnd').style.display='block'; document.getElementById('errEnd').textContent='Preencha todos os campos obrigatórios (*)'; return; }
+    document.getElementById('errEnd').style.display='none';
+    document.getElementById('step1').style.display='none';
+    document.getElementById('step2').style.display='block';
+    document.getElementById('stepInd2').classList.add('step-active');
+  }
+
+  function voltarStep1() {
+    document.getElementById('step2').style.display='none';
+    document.getElementById('step1').style.display='block';
+    document.getElementById('stepInd2').classList.remove('step-active');
+  }
+
+  function irStep3() {
+    const pagto = document.querySelector('input[name="pagto"]:checked');
+    if (!pagto) { document.getElementById('errPagto').style.display='block'; document.getElementById('errPagto').textContent='Selecione uma forma de pagamento.'; return; }
+    document.getElementById('errPagto').style.display='none';
+    document.getElementById('step2').style.display='none';
+    document.getElementById('step3').style.display='block';
+    document.getElementById('stepInd3').classList.add('step-active');
+    Cart.clear();
+  }
+
+  function togglePagto(radio) {
+    document.querySelectorAll('.pagto-opt').forEach(el => {
+      el.style.borderColor='rgba(201,168,76,0.15)';
+      el.style.background='var(--black-3)';
+    });
+    const opt = radio.closest('label').querySelector('.pagto-opt');
+    opt.style.borderColor='var(--gold)';
+    opt.style.background='rgba(201,168,76,0.06)';
+    document.getElementById('detCartao').style.display = radio.value==='cartao' ? 'flex' : 'none';
+    document.getElementById('detDinheiro').style.display = radio.value==='dinheiro' ? 'block' : 'none';
+    if (radio.value==='cartao') document.getElementById('detCartao').style.flexWrap='wrap';
+  }
+
+  // Máscara cartão
+  document.getElementById('cardNum')?.addEventListener('input', function() {
+    this.value = this.value.replace(/\D/g,'').replace(/(\d{4})/g,'$1 ').trim().slice(0,19);
+  });
+</script>
+</body>
+</html>
