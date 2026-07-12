@@ -123,7 +123,7 @@
 <script>
   // Gera QR code simples via API pública
   document.addEventListener('DOMContentLoaded', () => {
-    const url = 'https://luanbarreto-back.github.io/Gold-Steakhouse/cardapio/cardapio.html';
+    const url = 'https://luanbarreto-back.github.io/Gold-Steakhouse/public/cardapio/cardapio.html';
     const img = new Image();
     img.crossOrigin = 'anonymous';
     img.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(url)}&color=C9A84C&bgcolor=111111&margin=10`;
